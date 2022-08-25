@@ -3,20 +3,12 @@
 # 0층부터 있고, 각 층에는 1호부터 있음
 # 0층의 i호에는 i명이 산다.
 
-
-from re import A
-
-
 T = int(input())
 for _ in range(T):
     k = int(input())
     n = int(input())
-    apart = [[0] * (n + 1) for _ in range(k + 1)]
-    for i in range(k+1):
-        for j in range(1, n+1):
-            if i == 0:
-                apart[i][j] = i
-            else:
-                apart[i][j] = apart[i][j-1] + apart[i-1][j]
-    print(apart)
-    print(apart[k][n])         
+    people = [_ for _ in range(1, n + 1)]    # 0층 : 1호~n호 까지의 사람 수
+    for i in range(k):
+        for j in range(1, n):
+            people[j] += people[j-1]
+    print(people[-1])
