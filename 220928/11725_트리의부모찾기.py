@@ -23,6 +23,9 @@ for _ in range(N-1):
     tree[a].append(b)
     tree[b].append(a)
 
+print(tree)
+
 dfs(1)  # 1번 노드부터 방문시작! -> parent에 부모노드 정보 저장됨!
+print(parent)
 for i in range(2, N+1):
     print(parent[i])
